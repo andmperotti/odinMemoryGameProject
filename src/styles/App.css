@@ -1,19 +1,15 @@
-.App {
-  margin: 1%;
+.app-output {
+  text-align: center;
+  width: 90%;
+  margin: 0 auto;
 }
 
-.edit-button {
-  margin: 1ch 0 1ch 0;
-}
-
-.section-divide {
-  height: 2ch;
-  background-color: black;
-}
-
-/* media query to hide edit buttons when user prints screen */
-@media print {
-  .App #title {
-    display: none;
-  }
+.team-container {
+  display: flex;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: start;
+  justify-content: center;
 }
