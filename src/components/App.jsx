@@ -7,6 +7,8 @@ let mlbData = await fetch(
 ).then((result) => result.json());
 let mlbTeams = mlbData.sports[0].leagues[0].teams;
 
+shuffle(mlbTeams);
+
 function App() {
  
 
