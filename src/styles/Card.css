@@ -6,4 +6,5 @@
   border: 1px solid black;
   background-color: gray;
   display: inline-block;
+  padding-left: 1ch;
 }
