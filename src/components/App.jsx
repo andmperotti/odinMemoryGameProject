@@ -27,16 +27,20 @@ function App() {
   }
 
   return (
-    <>
+    <section className="app-output">
       <h1>MLB Memory Game</h1>
       <p>
         Click on different team logos in a row to increase your score, clicking
         a previously clicked logo will reset your score. Also refreshing will
         reset your current score and best score.
       </p>
-      <p>Current Score: {currentScore}</p>
-      <p>Best Score: {bestScore}</p>
-      <section className="logo-container">
+      <strong>
+        <p>Current Score: {currentScore}</p>
+      </strong>
+      <strong>
+        <p>Best Score: {bestScore}</p>
+      </strong>
+      <section className="team-container">
         {mlbTeams.map((teamObj) => (
           <Card
             className="team-card"
@@ -51,7 +55,7 @@ function App() {
           />
         ))}
       </section>
-    </>
+    </section>
   );
 }
 
