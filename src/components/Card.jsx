@@ -1,5 +1,4 @@
-import React from "react";
-import "../styles/Card.css";
+import "../styles/card.css";
 
 function Card({ teamAbbreviation, teamLogo, onClick }) {
   return (
