@@ -10,7 +10,9 @@ let mlbTeams = mlbData.sports[0].leagues[0].teams;
 shuffle(mlbTeams);
 
 function App() {
- 
+  const [currentScore, setCurrentScore] = useState(0);
+  const [bestScore, setBestScore] = useState(0);
+  const [clickedTeams, setClickedTeams] = useState([]);
 
   return (
 
