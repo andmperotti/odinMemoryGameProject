@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../styles/app.css";
+import "../styles/App.css";
 import { shuffle } from "../assets/functions";
 import { Card } from "./Card";
 

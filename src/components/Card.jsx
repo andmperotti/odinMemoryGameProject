@@ -1,4 +1,4 @@
-import "../styles/card.css";
+import "../styles/Card.css";
 
 function Card({ teamAbbreviation, teamLogo, onClick }) {
   return (
