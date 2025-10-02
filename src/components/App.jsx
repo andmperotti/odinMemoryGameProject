@@ -1,19 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../styles/App.css";
 import { shuffle } from "../assets/functions";
 import { Card } from "./Card";
-
-let mlbData = await fetch(
-  "https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/teams",
-).then((result) => result.json());
-let mlbTeams = mlbData.sports[0].leagues[0].teams;
-
-shuffle(mlbTeams);
 
 function App() {
   const [currentScore, setCurrentScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
   const [clickedTeams, setClickedTeams] = useState([]);
+  const [mlbTeams, setMlbTeams] = useState([]);
 
   function scoreChange(teamAbb) {
     if (!clickedTeams.includes(teamAbb)) {
@@ -25,6 +19,23 @@ function App() {
       setClickedTeams([]);
     }
   }
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        let mlbResponse = await fetch(
+          "https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/teams",
+        );
+        let mlbData = await mlbResponse.json();
+        let teams = mlbData.sports[0].leagues[0].teams;
+        setMlbTeams(shuffle(teams));
+      } catch {
+        document.querySelector(".team-container").textContent =
+          "error via api to get logos";
+      }
+    };
+    fetchData();
+  }, []);
 
   return (
     <section className="app-output">
@@ -50,7 +61,7 @@ function App() {
             onClick={(e) => {
               e.preventDefault();
               scoreChange(e.target.textContent);
-              shuffle(mlbTeams);
+              setMlbTeams(shuffle(mlbTeams));
             }}
           />
         ))}
