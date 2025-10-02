@@ -1,6 +1,8 @@
 //function to shuffle order of mlbTeams
 function shuffle(array) {
-  array.sort(() => Math.random() - 0.5);
+  let newArray = [...array];
+  newArray.sort(() => Math.random() - 0.5);
+  return newArray;
 }
 
-export {shuffle}
+export { shuffle };
